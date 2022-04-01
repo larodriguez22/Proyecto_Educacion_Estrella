@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     'creditos',
     'reservas',
     'solicitud',
-    'mentor',
     'estudiante',
+    'pregunta',
+    'carrera'
+    'mentor',
     
 ]
 
