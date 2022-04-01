@@ -4,6 +4,7 @@ from pregunta.models import Pregunta
 
 # Create your models here.
 
+
 class Test_Vocacional(models.Model):
     #finalResult = None
     testDate = models.DateTimeField(auto_now_add=True)
