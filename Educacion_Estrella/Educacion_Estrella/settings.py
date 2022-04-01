@@ -43,7 +43,8 @@ INSTALLED_APPS = [
     'reservas',
     'solicitud',
     'estudiante',
-    'pregunta'
+    'pregunta',
+    'carrera'
 ]
 
 MIDDLEWARE = [
