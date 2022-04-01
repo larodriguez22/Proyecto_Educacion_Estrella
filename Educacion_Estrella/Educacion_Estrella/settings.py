@@ -44,7 +44,7 @@ INSTALLED_APPS = [
     'solicitud',
     'estudiante',
     'pregunta',
-    'carrera'
+    'carrera',
     'mentor',
     
 ]
