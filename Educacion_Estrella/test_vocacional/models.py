@@ -5,9 +5,9 @@ from pregunta.models import Pregunta
 # Create your models here.
 
 class Test_Vocacional(models.Model):
-    finalResult = None
+    #finalResult = None
     testDate = models.DateTimeField(auto_now_add=True)
-    questions = models.ManyToManyField(Pregunta, on_delete=models.CASCADE, default=None)
+    questions = models.ManyToManyField(Pregunta, default=None)
 
     def __str__(self):
         return '%s %s' % (self.finalResult, self.testDate)

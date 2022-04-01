@@ -7,7 +7,7 @@ from django.db import models
 
 
 class Respuesta(models.Model):
-    id = models.IntegerField(null=False)
+    #id = models.IntegerField(null=False)
     text = models.CharField(max_length=150)
     def __str__(self):
         return '%s' %(self.text)
