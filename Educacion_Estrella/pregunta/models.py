@@ -11,6 +11,7 @@ class Respuesta(models.Model):
     text = models.CharField(max_length=150)
     def __str__(self):
         return '%s' %(self.text)
+        return '{}'.format(self.name)
     
 
 
