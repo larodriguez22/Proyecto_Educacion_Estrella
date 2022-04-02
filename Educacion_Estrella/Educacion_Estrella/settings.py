@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     'carrera',
     'mentor',
     
+    
 ]
 
 MIDDLEWARE = [
