@@ -20,6 +20,16 @@ def HomeUsuario(request):
     return(render, 'Usuario/home.html')
 
 
+def tablero(request):
+    total_usuarios_test = TestUsuario.objects.order_by('-puntaje_total')[:10]
+    contador = total_usuarios_test.count()
+
+    context = {
+        'usuario_test': total_usuarios_test,
+        'contar_user': contador
+    }
+    return render(request, 'play/tablero.html', context)
+
 def jugar(request):
     Test_usuario, created = TestUsuario.objects.get_or_create(
         usuario=request.user)

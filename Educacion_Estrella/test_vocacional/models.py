@@ -70,9 +70,10 @@ class TestUsuario(models.Model):
         self.actualizar_puntaje()
 
     def actualizar_puntaje(self):
-        puntaje_actualizado = self.intentos.filter(correcta=True).aggregate(models.Sum('puntaje_obtenido')['puntaje_obtenido__sum'])
+        puntaje_actualizado = self.intentos.filter(correcta=True).aggregate(models.Sum('puntaje_obtenido'))['puntaje_obtenido__sum']
         self.puntaje_total = puntaje_actualizado
         self.save()
+        
 class ElegirRespuesta(models.Model):
     MAXIMO_RESPUESTA = 4
 
