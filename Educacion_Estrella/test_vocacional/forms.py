@@ -5,11 +5,11 @@ from .models import Pregunta, PreguntasRespondidas, Usuario, ElegirRespuesta
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import get_user_model
 
-User = get_user_model
+User = get_user_model()
 
 
 class ElegirInlineFormset(forms.BaseInlineFormSet):
-    def clean(self) -> None:
+    def clean(self):
         super(ElegirInlineFormset, self).clean()
 
         respuesta_correcta = 0
@@ -20,7 +20,7 @@ class ElegirInlineFormset(forms.BaseInlineFormSet):
             if formulario.cleaned_data and formulario.cleaned_data.get('correcta') is True:
                 respuesta_correcta += 1
         try:
-            assert respuesta_correcta == Pregunta.NUM_RESPUESTAS_PERMITIDAS
+            assert respuesta_correcta == Pregunta.NUM_DE_RESPUESTAS_PERMITIDAS
         except AssertionError:
             raise forms.ValidationError('Solamente se permite una respuesta')
 
@@ -29,14 +29,14 @@ class RegistroFormulario(UserCreationForm):
     email = forms.EmailField(required=True)
     first_name = forms.CharField(required=True)
     last_name = forms.CharField(required=True)
-    """ class Meta: """
-    model = User
+    class Meta:
+        model = User
 
-    fields = [
-        'first_name',
-        'last_name',
-        'username',
-        'email',
-        'password1',
-        'password2'
-    ]
+        fields = [
+            'first_name',
+            'last_name',
+            'username',
+            'email',
+            'password1',
+            'password2'
+        ]

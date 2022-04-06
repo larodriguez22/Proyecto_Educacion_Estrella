@@ -10,6 +10,7 @@ class ElegirRespuestaInLine(admin.TabularInline):
     max_num = ElegirRespuesta.MAXIMO_RESPUESTA
     min_num = ElegirRespuesta.MAXIMO_RESPUESTA
     formset = ElegirInlineFormset
+    
 class PreguntaAdmin(admin.ModelAdmin):
     model = Pregunta
     inlines = (ElegirRespuestaInLine, )
