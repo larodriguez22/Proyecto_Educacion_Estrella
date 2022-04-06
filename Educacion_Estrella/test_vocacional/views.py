@@ -1,5 +1,6 @@
 from multiprocessing import context
-from django.shortcuts import render, redirect
+from django.http import Http404
+from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import RegistroFormulario, UsuarioLoginFormulario
 from .models import TestUsuario, Pregunta, PreguntasRespondidas
@@ -28,16 +29,38 @@ def jugar(request):
         pregunta_respondida = Test_usuario.intentos.select_related(
             'pregunta').get(pregunta__pk=pregunta_pk)
         respuesta_pk = request.POST.get('respuesta_pk')
-    else:
-        
-        respondidas = PreguntasRespondidas.objects.filter(
-            testUsuario=Test_usuario).values_list('pregunta__pk', flat=True)
 
-        pregunta = Pregunta.objects.exclude(pk__in=respondidas)
+        try:
+            opcion_seleccionada = pregunta_respondida.pregunta.opciones.get(
+                pk=respuesta_pk)
+        except ObjectDoesNotExist:
+            raise Http404
+
+        Test_usuario.validar_intento(pregunta_respondida, opcion_seleccionada)
+
+        return redirect('resultado', pregunta_respondida.pk)
+    else:
+
+        pregunta = Test_usuario.obtener_nuevas_preguntas()
+        if pregunta is not None:
+            Test_usuario.crear_intentos(pregunta)
+
         context = {
             'pregunta': pregunta
         }
     return render(request, 'play/jugar.html', context)
+
+
+def resultado_pregunta(request, pregunta_respondida_pk):
+    respondida = get_object_or_404(
+        PreguntasRespondidas, pk=pregunta_respondida_pk)
+
+    context = {
+        'respondida': respondida
+
+    }
+
+    return render(request, 'play/resultados.html', context)
 
 
 def loginView(request):

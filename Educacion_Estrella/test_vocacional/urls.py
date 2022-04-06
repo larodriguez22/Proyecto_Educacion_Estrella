@@ -1,6 +1,7 @@
 from unicodedata import name
 from django.urls import path
-from .views import inicio, registro, loginView, logoutView, HomeUsuario, jugar
+from .views import (inicio, registro, loginView,
+                    logoutView, HomeUsuario, jugar, resultado_pregunta)
 
 urlpatterns = [
     path('', inicio, name='inicio'),
@@ -9,5 +10,6 @@ urlpatterns = [
     path('registro/', registro, name='registro'),
     path('logout/', logoutView, name='logout'),
     path('jugar/', jugar, name='jugar'),
-    
+    path('resultado/<int:pregunta_respondida_pk>', resultado_pregunta, name='resultado'),
+
 ]
