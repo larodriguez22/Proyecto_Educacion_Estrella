@@ -1,6 +1,6 @@
 from pyexpat import model
 from django.contrib import admin
-from .models import Pregunta, ElegirRespuesta, PreguntasRespondidas
+from .models import Pregunta, ElegirRespuesta, PreguntasRespondidas, TestUsuario
 from .forms import ElegirInlineFormset
 
 
@@ -10,7 +10,7 @@ class ElegirRespuestaInLine(admin.TabularInline):
     max_num = ElegirRespuesta.MAXIMO_RESPUESTA
     min_num = ElegirRespuesta.MAXIMO_RESPUESTA
     formset = ElegirInlineFormset
-    
+
 class PreguntaAdmin(admin.ModelAdmin):
     model = Pregunta
     inlines = (ElegirRespuestaInLine, )
@@ -27,3 +27,4 @@ class PreguntasRespondidasAdmin(admin.ModelAdmin):
 admin.site.register(PreguntasRespondidas)
 admin.site.register(Pregunta, PreguntaAdmin)
 admin.site.register(ElegirRespuesta)
+admin.site.register(TestUsuario)
