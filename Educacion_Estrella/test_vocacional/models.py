@@ -42,7 +42,7 @@ class Pregunta(models.Model):
 class TestUsuario(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     puntaje_total = models.DecimalField(
-        verbose_name='Puntaje Total', default=0, decimal_places=2, max_digits=10)
+        verbose_name='Puntaje Total', default=0, null=False, decimal_places=2, max_digits=10)
 
     def crear_intentos(self,pregunta):
         intento = PreguntasRespondidas(pregunta=pregunta,testUsuario=self)
