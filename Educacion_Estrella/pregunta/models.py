@@ -1,4 +1,4 @@
-from cgitb import text
+""" from cgitb import text
 from enum import Flag
 from typing import TextIO
 from django.db import models
@@ -42,3 +42,6 @@ class Pregunta(models.Model):
     def __str__(self):
         return '%s' % (self.text)
         return '{}'.format(self.name)
+ """
+
+
