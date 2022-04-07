@@ -22,8 +22,8 @@ class Reserva(models.Model):
         default='',
     )
     mentor = models.ForeignKey(Mentor, on_delete=models.CASCADE, default=None)
-    nombre_estudiante = models.CharField(max_length=50)
-
+    #estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE, default=None)
+    estudiane = models.CharField(max_length=50, blank=True, null=True)
     def __str__(self):
         return '{}'.format(self.fecha)
 
