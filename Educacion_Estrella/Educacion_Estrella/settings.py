@@ -31,11 +31,11 @@ ALLOWED_HOSTS = ["*"]
 
 LOGIN_URL = "/login/auth0" 
 LOGIN_REDIRECT_URL = "/" 
-LOGOUT_REDIRECT_URL = "https://isis2503-ivan-alfonso.auth0.com/v2/logout?returnTo=http%3A%2F%2Fip_publica_instancia:8000" 
+LOGOUT_REDIRECT_URL = "https://isis2503-larodriguez22.us.auth0.com/v2/logout?returnTo=http%3A%2F%2F34.203.241.46:8000" 
 SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes 
-SOCIAL_AUTH_AUTH0_DOMAIN = 'isis2503-ivan-alfonso.auth0.com' 
-SOCIAL_AUTH_AUTH0_KEY = 'W8g5KLG4s2ogftLqVDrGwd3xD7JafO0S' 
-SOCIAL_AUTH_AUTH0_SECRET = '7MVp47TDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' 
+SOCIAL_AUTH_AUTH0_DOMAIN = 'isis2503-larodriguez22.us.auth0.com' 
+SOCIAL_AUTH_AUTH0_KEY = 'TVqZeO9yhrodjeDj7PEUA5akjObfL2Mg' 
+SOCIAL_AUTH_AUTH0_SECRET = 'wXjrR9C6MOJtkG7s4V3oUk_ZFVcKCzqw0Esw4dcswvnEA7CGvC3PIlGpdvnnTJpG' 
 SOCIAL_AUTH_AUTH0_SCOPE = [ 'openid', 'profile','email','role', ] 
 AUTHENTICATION_BACKENDS = { 
     'monitoring.auth0backend.Auth0', 
@@ -104,8 +104,12 @@ WSGI_APPLICATION = 'Educacion_Estrella.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'educacion-estrella-db',
+        'USER': 'eduEstrellaUser',
+        'PASSWORD':'isis2503',
+        'HOST':'educacionEstrellaDB',
+        'PORT': '5432',
     }
 }
 
