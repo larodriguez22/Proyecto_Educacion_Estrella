@@ -25,7 +25,23 @@ SECRET_KEY = 'django-insecure-z^)=r#-qgy3b31f*7a1b1pa*wb%s=t$5ywtoh_lg(v5oipt#h4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
+
+
+LOGIN_URL = "/login/auth0" 
+LOGIN_REDIRECT_URL = "/" 
+LOGOUT_REDIRECT_URL = "https://isis2503-ivan-alfonso.auth0.com/v2/logout?returnTo=http%3A%2F%2Fip_publica_instancia:8000" 
+SOCIAL_AUTH_TRAILING_SLASH = False # Remove end slash from routes 
+SOCIAL_AUTH_AUTH0_DOMAIN = 'isis2503-ivan-alfonso.auth0.com' 
+SOCIAL_AUTH_AUTH0_KEY = 'W8g5KLG4s2ogftLqVDrGwd3xD7JafO0S' 
+SOCIAL_AUTH_AUTH0_SECRET = '7MVp47TDXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX' 
+SOCIAL_AUTH_AUTH0_SCOPE = [ 'openid', 'profile','email','role', ] 
+AUTHENTICATION_BACKENDS = { 
+    'monitoring.auth0backend.Auth0', 
+    'django.contrib.auth.backends.ModelBackend',
+}
+
+
 
 
 # Application definition
@@ -46,6 +62,7 @@ INSTALLED_APPS = [
     'pregunta',
     'carrera',
     'mentor',
+    'social_django',
     
     
 ]
