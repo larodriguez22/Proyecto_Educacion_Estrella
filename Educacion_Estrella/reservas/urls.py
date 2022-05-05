@@ -1,13 +1,14 @@
 
 
-
-
-
-from django.contrib import admin
 from django.urls import path
-from . import views
+from django.views.decorators.csrf import csrf_exempt
+from django.conf.urls import include
+
+
+
 urlpatterns = [
    
-    path('', views.reservas_view, name='reservas_view'),
+    path('reservas/', views.reservas_view, name='variableList'), 
+   ## path('', views.reservas_view, name='reservas_view'),
     path('<int:pk>', views.reserva_view, name='reserva_view'),
 ]

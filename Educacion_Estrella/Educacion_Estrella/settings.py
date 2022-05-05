@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-z^)=r#-qgy3b31f*7a1b1pa*wb%s=t$5ywtoh_lg(v5oipt#h4
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ['*']
 
 
 LOGIN_URL = "/login/auth0" 
@@ -83,7 +83,7 @@ ROOT_URLCONF = 'Educacion_Estrella.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR), 'template'],
+        'DIRS': [os.path.join(BASE_DIR, 'Educacion_Estrella', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [

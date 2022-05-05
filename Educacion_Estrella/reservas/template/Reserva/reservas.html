@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+
+{% for reserva in reservas_view %}
+<tr>
+    <td class="d-flex justify-content-between">
+        {{ reserva.estudiante}}
+       
+    </td>
+    <td class="d-flex justify-content-between">
+        {{ reserva.mentor }}
+       
+    </td>
+    <td class="d-flex justify-content-between">
+        {{ reserva.tipo }}
+       
+    </td>
+    <td class="d-flex justify-content-between">
+        {{ reserva.fecha }}
+       
+    </td>
+</tr>
+{% endfor %}
+
+{% endblock %}
