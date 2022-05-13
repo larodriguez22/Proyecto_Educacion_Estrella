@@ -38,6 +38,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # Autenticacion
+    'corsheaders',
+    'rest_framework',
+    'django_rest_passwordreset',
+
     'test_vocacional',
     'clientes',
     'creditos',
@@ -47,9 +53,12 @@ INSTALLED_APPS = [
     'pregunta',
     'carrera',
     'mentor',
-    
+    'authentication',    
     
 ]
+
+# Custom user model
+AUTH_USER_MODEL = "authentication.CustomUser"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -59,6 +68,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'Educacion_Estrella.urls'
@@ -131,7 +141,10 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+CORS_ORIGIN_WHITELIST = ["http://localhost:3000"]
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CORS_ALLOW_CREDENTIALS = True

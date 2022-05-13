@@ -17,11 +17,21 @@ Including another URLconf
 from django.urls import path, include
 from django.contrib import admin
 from django.urls import path, include
+from rest_framework import routers
 from . import views
+
+# Api router
+router = routers.DefaultRouter()
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('test_vocacional.urls')),
     path('home', views.home),
     path('reservas/', include('reservas.urls')),
+
+    # Api routes. Con esta estructura tenemos dos endpoints:
+    # /api/auth/login/
+    # /api/auth/logout/
+    path('api/', include('authentication.urls')),
+    path('api/', include(router.urls)),
 ]
