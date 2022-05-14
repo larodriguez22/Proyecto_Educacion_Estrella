@@ -3,7 +3,7 @@ from .logic import mentor_logic as ml
 from django.http import HttpResponse
 from django.core import serializers
 from django.views.decorators.csrf import csrf_exempt
-from Educacion_Estrella.auth0backend import getRole
+
 from django.contrib import messages
 from django.http import HttpResponseRedirect, HttpResponse
 from django.urls import reverse
@@ -11,12 +11,10 @@ from django.urls import reverse
 
 @csrf_exempt
 def mentores_view(request):
-    role = getRole(request)
-    if role == "Mentor":
-        mentores = ml.get_todos()
-        context = {
+    
+    mentores = ml.get_todos()
+    context = {
             'mentores_view': mentores
-        }
-        return render(request, 'Mentor/mentores.html', context)
-    else:
-        return HttpResponse("Unauthorized User")
+    }
+    return render(request, 'Mentor/mentores.html', context)
+

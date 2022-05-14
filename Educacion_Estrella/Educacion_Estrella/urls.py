@@ -21,9 +21,9 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('home', views.home),
+    path('', views.home),
     path('', include('reservas.urls')),
     path('', include('mentor.urls')),
     path(r'', include('django.contrib.auth.urls')),
-    path(r'', include('social_django.urls')),
+    
 ]

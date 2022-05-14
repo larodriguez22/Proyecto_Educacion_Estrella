@@ -1,8 +1,16 @@
 {% extends 'base.html' %}
 {% block content %}
 
+<table class="table table-hover">
+    <thead>
+    <tr style="color:#0E2EB0">
+        <th>Variable</th>
+    </tr>
+    </thead>
+    <tbody>
 
-{% for reserva in reservas_view %}
+{% for reserva in reserva_list %}
+
 <tr>
     <td class="d-flex justify-content-between">
         {{ reserva.estudiante}}
@@ -20,7 +28,14 @@
         {{ reserva.fecha }}
        
     </td>
-</tr>
+    <td class="d-flex justify-content-between">
+        {{ reserva.id }}
+       
+    </td>
+</tr> 
+
 {% endfor %}
+</tbody>
+</table>
 
 {% endblock %}
