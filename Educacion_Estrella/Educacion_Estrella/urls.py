@@ -29,9 +29,5 @@ urlpatterns = [
     path('', include('reservas.urls')),
     path('', include('mentor.urls')),
     path('', include('test_vocacional.urls')),
-    # Api routes. Con esta estructura tenemos dos endpoints:
-    # /api/auth/login/
-    # /api/auth/logout/
-    path('api/', include('authentication.urls')),
-    path('api/', include(router.urls)),
+  
 ]

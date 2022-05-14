@@ -52,12 +52,11 @@ INSTALLED_APPS = [
     'pregunta',
     'carrera',
     'mentor',
-    'authentication',    
+  
     
 ]
 
-# Custom user model
-AUTH_USER_MODEL = "authentication.CustomUser"
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
