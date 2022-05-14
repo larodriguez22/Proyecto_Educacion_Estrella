@@ -9,5 +9,5 @@ urlpatterns = [
    
     path('reservas/', views.reservas_view, name='reservaList'), 
     ## path('', views.reservas_view, name='reservas_view'),
-    path('reservas/<id>', views.obtener_reserva, name='reserva'),
+    path('reservas/<id>', views.reserva_view, name='reserva'),
 ]
