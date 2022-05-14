@@ -24,6 +24,7 @@ urlpatterns = [
     path('home', views.home),
     path('', include('reservas.urls')),
     path('', include('mentor.urls')),
+    path('', include('test_vocacional.urls')),
     path(r'', include('django.contrib.auth.urls')),
     path(r'', include('social_django.urls')),
 ]

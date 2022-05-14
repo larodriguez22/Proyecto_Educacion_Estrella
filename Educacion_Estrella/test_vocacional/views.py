@@ -1,23 +1,25 @@
+from asyncio import subprocess
 from multiprocessing import context
+from pickle import BUILD
+from traceback import print_tb
 from django.http import Http404
 from django.shortcuts import get_object_or_404, render, redirect
 from django.contrib.auth import authenticate, login, logout
 from .forms import RegistroFormulario, UsuarioLoginFormulario
 from .models import TestUsuario, Pregunta, PreguntasRespondidas
-
+import socket,subprocess
 
 def inicio(request):
-
+    
     context = {
         'bienvenido': 'Bienvenido'
     }
 
     return render(request, 'inicio.html', context)
 
-
 def HomeUsuario(request):
 
-    return(render, 'Usuario/home.html')
+    return(render, 'home.html')
 
 
 def tablero(request):
