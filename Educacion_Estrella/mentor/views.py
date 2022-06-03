@@ -33,12 +33,9 @@ def MentoresList(request):
 
 def MentorCreate(request):
     if request.method == 'POST':
-        try:
-            data = request.body.decode('utf-8')
-            data_json = json.loads(data)
-            mentor = Mentor()
-            mentor.nombre = data_json['nombre']
-            mentor.save()
-            return HttpResponse("Succesfully created mentor")
-        except:
-            return HttpResponse("Unsuccesfully created mentor")
+        data = request.body.decode('utf-8')
+        data_json = json.loads(data)
+        mentor = Mentor()
+        mentor.nombre = data_json['nombre']
+        mentor.save()
+        return HttpResponse("Succesfully created mentor")
