@@ -5,6 +5,6 @@ from . import views
 
 urlpatterns = [
 	#path('mentores/', views.mentores_view, name="mentoresList"),
-	url(r'^mentores/', views.MentoresList),
-    url(r'^mentores/$', csrf_exempt(views.MentorCreate), name='mentorCreate'),
+	url(r'^mentores/', views.MentoresList, name="mentoresList"),
+    url(r'^mentorcreate/$', csrf_exempt(views.MentorCreate), name='mentorCreate'),
 ]
