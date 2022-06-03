@@ -22,7 +22,7 @@ def mentores_view(request):
     context = {
         'mentores_view': mentores
     }
-    return JsonResponse(context, safe=False)
+    return render(request, 'mentores.html', context)
 
 
 def MentoresList(request):
