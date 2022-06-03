@@ -4,7 +4,7 @@ from django.conf.urls import include, url
 from . import views
 
 urlpatterns = [
-	path('mentores/', views.mentores_view, name="mentoresList"),
+	#path('mentores/', views.mentores_view, name="mentoresList"),
 	url(r'^mentores/', views.MentoresList),
     url(r'^mentores/$', csrf_exempt(views.MentorCreate), name='mentorCreate'),
 ]
