@@ -22,7 +22,7 @@ def mentores_view(request):
     context = {
         'mentores_view': mentores
     }
-    return render(request, 'Mentor/mentores.html', context)
+    return render(request, 'mentores.html', context)
 
 
 def MentoresList(request):
