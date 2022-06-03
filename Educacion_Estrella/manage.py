@@ -2,7 +2,6 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
-import socket, subprocess
 import logging
 
 from django.shortcuts import redirect
