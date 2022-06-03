@@ -8,13 +8,6 @@ import logging
 from django.shortcuts import redirect
 
 
-
-ip = "127.0.0.1"
-port = "8000"
-
-
-
-
 def main():
     """Run administrative tasks."""
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Educacion_Estrella.settings')
@@ -31,11 +24,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    try:
-        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-        s.connect((ip, int(port)))
-        s.shutdown(2)
-    except socket.error:
-        logging.critical("EL SERVIDOR SE DETUVO INESPERADAMENTE")
-        print("REINICIANDO EL SERVIDOR...")
-        subprocess.call(['python', 'manage.py', 'runserver'])
